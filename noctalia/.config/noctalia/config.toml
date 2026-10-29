@@ -1,0 +1,6 @@
+[widget.clock]
+format = "{:%A %d %b}  {:%H:%M}"
+
+[keybinds]
+up=["ctrl+p"]
+down=["ctrl+n"]
