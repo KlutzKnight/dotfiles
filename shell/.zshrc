@@ -1,84 +1,83 @@
-# Zsh Options
-setopt GLOB_DOTS
 
-# Expand History Size
+# ------------------------ Zsh Options ------------------------
+
+setopt GLOB_DOTS
+setopt EXTENDED_HISTORY
+
 HISTFILE=~/.zsh_history
 HISTSIZE=500
 SAVEHIST=10000
-setopt EXTENDED_HISTORY
 
-# Environment
+# ------------------------ Environment ------------------------
+
 export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
 
-# Initialize Starship
-eval "$(starship init zsh)"
-
-# Aliases
-alias ls="ls --color=auto"
-alias lsa="ls -a"
-alias grep="grep --color=auto"
-
-# ------------------------ Completion Menu ------------------------
-zstyle :compinstall filename '/home/rafi/.zshrc'
+# ------------------------ Completion ------------------------
 
 zmodload zsh/complist
 autoload -Uz compinit
-compinit
+
+# Rebuild completion cache only when needed
+if [[ -n ${ZDOTDIR:-$HOME}/.zcompdump(#qN.mh+24) ]]; then
+    compinit
+else
+    compinit -C
+fi
 
 zstyle ':completion:*' menu select
 
-# Navigate completion menu with ctrl+n and ctrl+p
+# Navigate completion menu
 bindkey -M menuselect '^n' down-line-or-history
 bindkey -M menuselect '^p' up-line-or-history
 bindkey -M menuselect '^y' accept-line
 
-# ----------------------- End Completion Menu ------------------------
+# ------------------------ Vim Mode ------------------------
 
-# ------------------------ VIM Mode ------------------------
-bindkey -v  # Enable vim mode
+bindkey -v
 
-# Fix Ctrl+W in vi insert mode
 bindkey -M viins '^W' backward-kill-word
-
-# Fix Backspace in vi insert mode
 bindkey -M viins '^?' backward-delete-char
 bindkey -M viins '^H' backward-delete-char
 
 KEYTIMEOUT=1
 
-# Cursor shape: block in Normal mode, beam in Insert mode
+# Cursor shape
 function zle-keymap-select {
-  case $KEYMAP in
-    vicmd)      echo -ne '\e[2 q' ;;  # Block cursor
-    viins|main) echo -ne '\e[6 q' ;;  # Beam cursor
-  esac
+    case $KEYMAP in
+        vicmd)      print -Pn '\e[2 q' ;;
+        viins|main) print -Pn '\e[6 q' ;;
+    esac
 }
 
-# Set beam cursor when a prompt appears
 function zle-line-init {
-  print -Pn '\e[6 q'
+    print -Pn '\e[6 q'
+}
+
+function zle-line-finish {
+    print -Pn '\e[2 q'
 }
 
 zle -N zle-keymap-select
 zle -N zle-line-init
-
-# Restore cursor shape when command finishes
-function zle-line-finish {
-  echo -ne '\e[2 q'
-}
 zle -N zle-line-finish
 
-# ------------------------ End VIM Mode ------------------------
-
-# Custom Prompt
-# PS1='%F{204}┌──(%B%F{99}%n%F{204}@%B%F{135}%m%F{204})%B%F{114}-%B%F{201}[%B%F{45}%~%F{201}]%b
-# %F{204}╰──%F{114}$%f '
-
 # ------------------------ Plugins ------------------------
-# Plugins
-plugins=(zsh-autosuggestions)
 
-# Add Zsh Syntax Hightlighting (Downloaded from Arch Repo)
+# Autosuggestions
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# Accept full suggestion with Ctrl + /
+bindkey '^_' autosuggest-accept
+
+# Syntax highlighting (keep last)
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# ------------------------ End Plugins ------------------------
+# ------------------------ Aliases ------------------------
+
+alias ls="ls --color=auto"
+alias lsa="ls -a"
+alias grep="grep --color=auto"
+
+# ------------------------ Starship ------------------------
+
+eval "$(starship init zsh)"
