@@ -8,10 +8,6 @@ SAVEHIST=10000
 setopt EXTENDED_HISTORY
 
 # Environment
-export EDITOR="nvim"
-export VISUAL=$EDITOR
-export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
-
 export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
 
 # Initialize Starship
