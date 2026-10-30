@@ -60,7 +60,7 @@ widget_order = [ "lockscreen-login-box@HDMI-A-1", "lockscreen-login-box@eDP-1" ]
         show_password_reveal = true
         show_session_buttons = true
         show_unlock_hint = true
-        show_weather = true
+        show_weather = false
 
     [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
     box_height = 196.0
@@ -97,10 +97,7 @@ polkit_agent = true
 settings_show_advanced = false
 
     [shell.animation]
-    speed = 1.2500000186264515
-
-    [shell.greeter_sync]
-    auto_sync = true
+    speed = 1.25
 
     [shell.launcher]
     categories = false
