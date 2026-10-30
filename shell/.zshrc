@@ -1,10 +1,11 @@
 # Zsh Options
 setopt GLOB_DOTS
 
-# History
+# Expand History Size
 HISTFILE=~/.zsh_history
-HISTSIZE=1000
-SAVEHIST=1000
+HISTSIZE=500
+SAVEHIST=10000
+setopt EXTENDED_HISTORY
 
 # Environment
 export EDITOR="nvim"
@@ -13,7 +14,7 @@ export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 
 export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
 
-# Initialize
+# Initialize Starship
 eval "$(starship init zsh)"
 
 # Aliases
@@ -77,5 +78,11 @@ zle -N zle-line-finish
 # PS1='%F{204}┌──(%B%F{99}%n%F{204}@%B%F{135}%m%F{204})%B%F{114}-%B%F{201}[%B%F{45}%~%F{201}]%b
 # %F{204}╰──%F{114}$%f '
 
+# ------------------------ Plugins ------------------------
+# Plugins
+plugins=(zsh-autosuggestions)
+
 # Add Zsh Syntax Hightlighting (Downloaded from Arch Repo)
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# ------------------------ End Plugins ------------------------
