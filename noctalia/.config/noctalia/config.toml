@@ -10,31 +10,31 @@ order = [ "Top" ]
     [bar.Top]
     background_opacity = 0.8
     capsule = true
-    center = [ "group:g2", "clock" ]
+    center = [ "group:media", "clock" ]
     concave_edge_corners = false
-    end = [ "group:g3", "group:g4", "group:g5" ]
+    end = [ "group:utilities", "group:wireless", "group:power" ]
     margin_ends = 150
-    start = [ "workspaces", "group:g1" ]
+    start = [ "workspaces", "group:system-hub" ]
     widget_spacing = 8
 
         [[bar.Top.capsule_group]]
-        id = "g2"
+        id = "media"
         members = [ "media", "audio_visualizer" ]
 
         [[bar.Top.capsule_group]]
-        id = "g3"
+        id = "utilities"
         members = [ "tray", "notifications", "clipboard" ]
 
         [[bar.Top.capsule_group]]
-        id = "g4"
+        id = "wireless"
         members = [ "bluetooth", "network" ]
 
         [[bar.Top.capsule_group]]
-        id = "g5"
+        id = "power"
         members = [ "battery", "session" ]
 
         [[bar.Top.capsule_group]]
-        id = "g1"
+        id = "system-hub"
         members = [ "cpu", "ram" ]
 
 [control_center]
@@ -91,6 +91,9 @@ directory = "/home/rafi/Pictures/Wallpapers"
 enabled = false
 
 [widget.audio_visualizer]
+
+    [widget.media]
+    hide_when_no_media = true
 
     [widget.audio_visualizer.actions]
     back = "media previous"
