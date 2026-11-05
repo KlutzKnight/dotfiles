@@ -3,6 +3,7 @@
 
 setopt GLOB_DOTS
 setopt EXTENDED_HISTORY
+setopt SHARE_HISTORY
 
 HISTFILE=~/.zsh_history
 HISTSIZE=500
