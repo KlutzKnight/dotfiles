@@ -13,24 +13,15 @@ $git_status\
 [](fg:#FCA17D bg:#86BBD8)\
 $c\
 $cpp\
-$elixir\
-$elm\
+$cmake\
 $golang\
 $gradle\
-$haskell\
 $java\
-$julia\
 $maven\
-$nodejs\
-$bun\
-$nim\
 $rust\
-$scala\
 [](fg:#86BBD8 bg:#06969A)\
 $docker_context\
-[](fg:#06969A bg:#33658A)\
-$time\
-[ ](fg:#33658A)\
+[ ](fg:#06969A)\
 $new_line
 ${custom.prompt_middle}\
 $new_line
@@ -64,13 +55,13 @@ show_always = true
 style_user = "bg:#9A348E"
 style_root = "bg:#9A348E"
 format = '[$user ]($style)'
-disabled = false
 
-# An alternative to the username module which displays a symbol that
-# represents the current operating system
 [os]
 style = "bg:#9A348E"
-disabled = true # Disabled by default
+disabled = false # Disabled by default
+
+[os.symbols]
+Arch = "󰣇 "
 
 [directory]
 style = "bg:#DA627D"
@@ -81,10 +72,22 @@ truncation_symbol = "…/"
 # Here is how you can shorten some long paths by text replacement
 # similar to mapped_locations in Oh My Posh:
 [directory.substitutions]
+"~" = " "
 "Documents" = "󰈙 "
 "Downloads" = " "
 "Music" = " "
 "Pictures" = " "
+"Videos" = " "
+"Desktop" = " "
+"Projects" = "󰲋 "
+"Project" = "󰲋 "
+"Library" = "󰂺 "
+".config" = " "
+".local" = "󰉋 "
+".cache" = "󰪺 "
+".ssh" = "󰣀 "
+".git" = "󰊢 "
+"tmp" = "󰪺 "
 # Keep in mind that the order matters. For example:
 # "Important Documents" = " 󰈙 "
 # will not be replaced, because "Documents" was already substituted before.
@@ -95,10 +98,17 @@ truncation_symbol = "…/"
 symbol = " "
 style = "bg:#86BBD8"
 format = '[ $symbol ($version) ]($style)'
+detect_extensions = ['c']
 
 [cpp]
-# disabled = false
+disabled = false
 symbol = " "
+style = "bg:#86BBD8"
+format = '[ $symbol ($version) ]($style)'
+detect_extensions = ["cpp", "cc", "cxx"]
+
+[cmake]
+symbol = " "
 style = "bg:#86BBD8"
 format = '[ $symbol ($version) ]($style)'
 
@@ -106,16 +116,6 @@ format = '[ $symbol ($version) ]($style)'
 symbol = " "
 style = "bg:#06969A"
 format = '[ $symbol $context ]($style)'
-
-[elixir]
-symbol = " "
-style = "bg:#86BBD8"
-format = '[ $symbol ($version) ]($style)'
-
-[elm]
-symbol = " "
-style = "bg:#86BBD8"
-format = '[ $symbol ($version) ]($style)'
 
 [git_branch]
 symbol = ""
@@ -135,27 +135,8 @@ format = '[ $symbol ($version) ]($style)'
 style = "bg:#86BBD8"
 format = '[ $symbol ($version) ]($style)'
 
-[haskell]
-symbol = " "
-style = "bg:#86BBD8"
-format = '[ $symbol ($version) ]($style)'
-
 [java]
-symbol = " "
-style = "bg:#86BBD8"
-format = '[ $symbol ($version) ]($style)'
-
-[jj_bookmark]
-symbol = ""
-style = "bg:#FCA17D"
-format = '[ $symbol $bookmark(@$remote)$diverged( \\(+$overflow_count others\\)) ]($style)'
-
-[jj_status]
-style = "bg:#FCA17D"
-format = '[$all ]($style)'
-
-[julia]
-symbol = " "
+symbol = " "
 style = "bg:#86BBD8"
 format = '[ $symbol ($version) ]($style)'
 
@@ -163,33 +144,8 @@ format = '[ $symbol ($version) ]($style)'
 style = "bg:#86BBD8"
 format = '[ $symbol ($version) ]($style)'
 
-[nodejs]
-symbol = ""
-style = "bg:#86BBD8"
-format = '[ $symbol ($version) ]($style)'
-
-[bun]
-symbol = ""
-style = "bg:#86BBD8"
-format = '[ $symbol ($version) ]($style)'
-
-[nim]
-symbol = "󰆥 "
-style = "bg:#86BBD8"
-format = '[ $symbol ($version) ]($style)'
-
 [rust]
-symbol = ""
+symbol = " "
 style = "bg:#86BBD8"
 format = '[ $symbol ($version) ]($style)'
 
-[scala]
-symbol = " "
-style = "bg:#86BBD8"
-format = '[ $symbol ($version) ]($style)'
-
-[time]
-disabled = false
-time_format = "%R" # Hour:Minute Format
-style = "bg:#33658A"
-format = '[ ♥ $time ]($style)'
