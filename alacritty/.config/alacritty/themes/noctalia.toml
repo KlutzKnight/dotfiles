@@ -11,23 +11,23 @@ text = '#1c1a23'
 cursor = '#8967e4'
 
 [colors.search.matches]
-foreground = '#2f2b3b'
+foreground = '#26232f'
 background = '#cc66b1'
 
 [colors.search.focused_match]
-foreground = '#2f2b3b'
+foreground = '#26232f'
 background = '#8967e4'
 
 [colors.footer_bar]
-foreground = '#2f2b3b'
-background = '#e4e3e8'
+foreground = '#26232f'
+background = '#e5e3e8'
 
 [colors.hints.start]
-foreground = '#2f2b3b'
+foreground = '#26232f'
 background = '#ba5cd6'
 
 [colors.hints.end]
-foreground = '#2f2b3b'
+foreground = '#26232f'
 background = '#ba5cd6'
 
 [colors.selection]
