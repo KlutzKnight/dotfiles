@@ -34,7 +34,7 @@ add_newline = true
 
 # Custom Modules
 [custom.prompt_top]
-command = "printf '┌──'"
+command = "printf '┌─'"
 when = true  # Always
 format = "[$output](bold purple)"
 
@@ -44,7 +44,7 @@ when = true  # Always
 format = "[$output](bold purple)"
 
 [custom.prompt_bottom]
-command = "printf '╰────'"
+command = "printf '╰──'"
 when = true  # Always
 format = "[$output](bold purple)"
 
