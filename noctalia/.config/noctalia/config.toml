@@ -9,13 +9,17 @@ order = [ "Top" ]
 
     [bar.Top]
     background_opacity = 0.8
-    capsule = true
-    center = [ "group:media", "clock" ]
     concave_edge_corners = false
-    end = [ "group:utilities", "group:wireless", "group:power" ]
     margin_ends = 150
-    start = [ "workspaces", "group:system-hub" ]
     widget_spacing = 8
+    capsule = true
+    start = [ "workspaces", "group:system-hub" ]
+    center = [ "group:media", "clock" ]
+    end = [ "group:utilities", "group:wireless", "group:power" ]
+
+        [[bar.Top.capsule_group]]
+        id = "system-hub"
+        members = [ "cpu", "ram" ]
 
         [[bar.Top.capsule_group]]
         id = "media"
@@ -33,14 +37,7 @@ order = [ "Top" ]
         id = "power"
         members = [ "battery", "session" ]
 
-        [[bar.Top.capsule_group]]
-        id = "system-hub"
-        members = [ "cpu", "ram" ]
-
 [control_center]
-
-    [control_center.media]
-    show_visualizer = false
 
     [[control_center.shortcuts]]
     type = "wifi"
