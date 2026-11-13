@@ -40,6 +40,7 @@ output "HDMI-A-1" {
     focus-at-startup
 }
 output "eDP-1" {
+    off
     mode "1920x1080@60"
 }
 

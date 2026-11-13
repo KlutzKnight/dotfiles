@@ -68,7 +68,7 @@ zle -N zle-line-finish
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Accept full suggestion with Ctrl + /
-bindkey '^_' autosuggest-accept
+bindkey '^y' autosuggest-accept
 
 # Syntax highlighting (keep last)
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
