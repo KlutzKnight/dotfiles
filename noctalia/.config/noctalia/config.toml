@@ -14,6 +14,7 @@ order = [ "Top" ]
     margin_ends = 150
     widget_spacing = 8
     capsule = true
+    capsule_radius = 4
     start = [ "workspaces", "group:system-hub" ]
     center = [ "group:media", "clock" ]
     end = [ "group:utilities", "group:wireless", "group:power" ]
