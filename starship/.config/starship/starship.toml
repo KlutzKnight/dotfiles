@@ -2,7 +2,7 @@
 
 format = """
 ${custom.prompt_top}\
-[](#9A348E)\
+[█](#9A348E)\
 $os\
 $username\
 [](bg:#DA627D fg:#9A348E)\
