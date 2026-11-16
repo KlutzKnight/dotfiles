@@ -169,7 +169,7 @@ window-rule {
 
 // Enable rounded corners for all windows.
 window-rule {
-    geometry-corner-radius 4
+    geometry-corner-radius 1
     clip-to-geometry true
 }
 

@@ -9,6 +9,7 @@ order = [ "Top" ]
 
     [bar.Top]
     background_opacity = 0.8
+    radius = 1
     concave_edge_corners = false
     margin_ends = 150
     widget_spacing = 8
@@ -59,6 +60,7 @@ up = [ "Ctrl+p" ]
 auto_locate = true
 
 [shell]
+corner_radius_scale = 0.1
 avatar_path = "/home/rafi/Pictures/Profile Pictures/Lamb.jpg"
 font_family = "Ubuntu"
 polkit_agent = true
